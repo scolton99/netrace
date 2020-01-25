@@ -9,5 +9,6 @@
         android:visible="true" />
     <item
         android:id="@+id/pingFragment"
+        android:icon="@drawable/ic_settings_ethernet_black_24dp"
         android:title="Ping" />
 </menu>

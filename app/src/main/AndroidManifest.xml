@@ -31,13 +31,13 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <receiver
-            android:name=".receivers.WifiInfoReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.NETWORK_STATE_CHANGED_ACTION" />
-            </intent-filter>
-        </receiver>
+<!--        <receiver-->
+<!--            android:name=".receivers.WifiInfoReceiver"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.NETWORK_STATE_CHANGED_ACTION" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
     </application>
 
 </manifest>

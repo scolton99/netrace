@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="5sp"
+    android:paddingBottom="5sp">
+
+    <TextView
+        android:id="@+id/pingSeq"
+        android:layout_width="60sp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10sp"
+        android:layout_weight="0"
+        android:fontFamily="@font/raleway"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/pingRTT"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/raleway"
+        android:textAlignment="textStart"
+        android:textSize="24sp"
+        tools:text="251.34 ms" />
+
+    <TextView
+        android:id="@+id/pingTTL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:fontFamily="@font/raleway"
+        android:paddingStart="10sp"
+        android:paddingEnd="10sp"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        tools:text="54" />
+</LinearLayout>

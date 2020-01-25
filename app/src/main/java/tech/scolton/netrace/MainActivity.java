@@ -1,19 +1,29 @@
 package tech.scolton.netrace;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
+    private ConstraintLayout constraintLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +42,15 @@ public class MainActivity extends AppCompatActivity {
                 drawer.openDrawer(GravityCompat.START);
             }
         });
+
+        this.constraintLayout = findViewById(R.id.ConstraintLayout);
+    }
+
+    public void updateHolderConstraint(int bottom) {
+        ConstraintSet constraintSet = new ConstraintSet();
+        constraintSet.clone(this.constraintLayout);
+        constraintSet.connect(R.id.fragmentHolder, ConstraintSet.BOTTOM, R.id.ConstraintLayout, ConstraintSet.BOTTOM, bottom);
+        constraintSet.applyTo(this.constraintLayout);
     }
 
     @Override

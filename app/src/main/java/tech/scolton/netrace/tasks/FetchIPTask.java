@@ -1,7 +1,6 @@
 package tech.scolton.netrace.tasks;
 
 import android.os.AsyncTask;
-import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -48,8 +47,6 @@ public class FetchIPTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String s) {
-        super.onPostExecute(s);
-
         activityRef.get().onIpLoaded(s);
     }
 }

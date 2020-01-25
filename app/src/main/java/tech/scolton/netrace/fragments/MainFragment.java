@@ -22,6 +22,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.OnLifecycleEvent;
 
 import android.os.Handler;
 import android.telephony.TelephonyManager;
@@ -38,6 +39,7 @@ import java.net.InetAddress;
 import tech.scolton.netrace.R;
 import tech.scolton.netrace.receivers.WifiInfoReceiver;
 import tech.scolton.netrace.tasks.FetchIPTask;
+import tech.scolton.netrace.util.IP;
 
 import static android.content.Context.WIFI_SERVICE;
 import static android.net.wifi.WifiManager.NETWORK_STATE_CHANGED_ACTION;
@@ -99,14 +101,23 @@ public class MainFragment extends Fragment {
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        super.onDestroyView();
 
         Activity parent = this.getActivity();
         if (parent == null)
             return;
 
         parent.unregisterReceiver(wir);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        Activity parent = this.getActivity();
+        if (parent == null)
+            return;
 
         TelephonyManager tm = (TelephonyManager) parent.getSystemService(Context.TELEPHONY_SERVICE);
         if (tm == null)
@@ -231,7 +242,7 @@ public class MainFragment extends Fragment {
 
             this.wifiIcon.setImageResource(R.drawable.ic_wifi_black_24dp);
 
-            this.localIpView.setText(MainFragment.renderIP(wifiInfo.getIpAddress()));
+            this.localIpView.setText(IP.render(wifiInfo.getIpAddress()));
             this.localIpView.setTextColor(getActivity().getResources().getColor(android.R.color.primary_text_dark));
             this.localIpView.setVisibility(View.VISIBLE);
 
@@ -253,34 +264,6 @@ public class MainFragment extends Fragment {
 
     private void loadWifiSpeed(WifiInfo wifiInfo) {
         this.wifiLinkSpeed.setText(getString(R.string.speed_mbps, wifiInfo.getLinkSpeed()));
-    }
-
-    private static String renderIP(int ip) {
-        int[] blks = new int[4];
-        blks[0] = ip & 0xFF;
-        blks[1] = (ip >> 8) & 0xFF;
-        blks[2] = (ip >> 16) & 0xFF;
-        blks[3] = (ip >> 24) & 0xFF;
-
-        StringBuilder sb = new StringBuilder();
-        for (int i : blks) {
-            sb.append(i);
-            sb.append(".");
-        }
-        sb.deleteCharAt(sb.length() - 1);
-
-        return sb.toString();
-    }
-
-    private static String renderIP(byte[] blks) {
-        StringBuilder sb = new StringBuilder();
-        for (byte i : blks) {
-            sb.append(i & 0xFF);
-            sb.append(".");
-        }
-        sb.deleteCharAt(sb.length() - 1);
-
-        return sb.toString();
     }
 
     private void checkPermissions() {
@@ -326,7 +309,7 @@ public class MainFragment extends Fragment {
             return;
         }
 
-        this.cellularIpView.setText(MainFragment.renderIP(address.getAddress()));
+        this.cellularIpView.setText(IP.render(address.getAddress()));
         this.cellularIpView.setVisibility(View.VISIBLE);
     }
 

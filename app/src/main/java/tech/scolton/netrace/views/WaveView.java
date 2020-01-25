@@ -1,15 +1,19 @@
 package tech.scolton.netrace.views;
 
 import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
+import tech.scolton.netrace.MainActivity;
 import tech.scolton.netrace.R;
 
 public class WaveView extends View {
@@ -88,6 +92,26 @@ public class WaveView extends View {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         this.canvasWidth = w;
         this.canvasHeight = h;
+
+        int bottom = (int)(h * 0.12) + BACKGROUND_WAVELENGTH / 8 + 20;
+
+        Context c = getContext();
+        while (c instanceof ContextWrapper) {
+            if (c instanceof Activity) break;
+            c = ((ContextWrapper) c).getBaseContext();
+        }
+
+        if (!(c instanceof MainActivity)) return;
+
+        MainActivity activity = (MainActivity) c;
+        activity.updateHolderConstraint(bottom);
+
+        post(new Runnable() {
+            @Override
+            public void run() {
+                WaveView.this.requestLayout();
+            }
+        });
     }
 
     private void drawWave(Canvas canvas, int y, int wavelength, Paint paint, int offset) {

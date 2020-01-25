@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@+id/mainFragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -15,6 +15,10 @@
         android:name="tech.scolton.netrace.fragments.PingFragment"
         android:label="PingFragment" />
 
-    <action android:id="@+id/action_global_pingFragment" app:destination="@id/pingFragment"/>
-    <action android:id="@+id/action_global_mainFragment" app:destination="@id/mainFragment"/>
+    <action
+        android:id="@+id/action_global_pingFragment"
+        app:destination="@id/pingFragment" />
+    <action
+        android:id="@+id/action_global_mainFragment"
+        app:destination="@id/mainFragment" />
 </navigation>
