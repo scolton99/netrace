@@ -7,14 +7,14 @@ import android.content.Intent;
 import tech.scolton.netrace.fragments.MainFragment;
 
 public class WifiInfoReceiver extends BroadcastReceiver {
-    private MainFragment fragment;
+  private final MainFragment fragment;
 
-    public WifiInfoReceiver(MainFragment f) {
-        this.fragment = f;
-    }
+  public WifiInfoReceiver(MainFragment f) {
+    this.fragment = f;
+  }
 
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        this.fragment.loadWifiInfo();
-    }
+  @Override
+  public void onReceive(Context context, Intent intent) {
+    this.fragment.loadWifiInfo();
+  }
 }

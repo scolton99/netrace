@@ -10,43 +10,43 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
-import javax.net.ssl.HttpsURLConnection;
 import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
 
 import tech.scolton.netrace.fragments.MainFragment;
 
 
 public class FetchIPTask extends AsyncTask<Void, Void, String> {
-    private WeakReference<MainFragment> activityRef;
+  private final WeakReference<MainFragment> activityRef;
 
-    public FetchIPTask(WeakReference<MainFragment> activityRef) {
-        this.activityRef = activityRef;
-    }
+  public FetchIPTask(WeakReference<MainFragment> activityRef) {
+    this.activityRef = activityRef;
+  }
 
-    @Override
-    protected String doInBackground(Void... voids) {
-        try {
-            URL url = new URL("https://api.ipify.org?format=json");
-            HttpsURLConnection request = (HttpsURLConnection) url.openConnection();
+  @Override
+  protected String doInBackground(Void... voids) {
+    try {
+      URL url = new URL("https://api.ipify.org?format=json");
+      HttpsURLConnection request = (HttpsURLConnection) url.openConnection();
 
-            InputStream response = new BufferedInputStream(request.getInputStream());
-            ByteArrayOutputStream buf = new ByteArrayOutputStream();
+      InputStream response = new BufferedInputStream(request.getInputStream());
+      ByteArrayOutputStream buf = new ByteArrayOutputStream();
 
-            int result;
-            while ((result = response.read()) != -1)
-                buf.write(result);
+      int result;
+      while ((result = response.read()) != -1) buf.write(result);
 
-            String rawJson = buf.toString();
-            JSONObject obj = new JSONObject(rawJson);
+      String rawJson = buf.toString();
+      JSONObject obj = new JSONObject(rawJson);
 
-            return obj.getString("ip");
-        } catch (IOException | JSONException ignored) {}
+      return obj.getString("ip");
+    } catch (IOException | JSONException ignored) {}
 
-        return null;
-    }
+    return null;
+  }
 
-    @Override
-    protected void onPostExecute(String s) {
-        activityRef.get().onIpLoaded(s);
-    }
+  @Override
+  protected void onPostExecute(String s) {
+    activityRef.get().onIpLoaded(s);
+  }
 }

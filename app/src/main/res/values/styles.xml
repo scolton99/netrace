@@ -12,13 +12,4 @@
         <item name="colorPrimaryDark">@color/colorPrimary</item>
     </style>
 
-    <style name="NetraceTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="NetraceTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="NetraceTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
 </resources>

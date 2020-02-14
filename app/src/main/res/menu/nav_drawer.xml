@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/mainFragment"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="Home"
+        android:title="@string/nav_home"
         android:visible="true" />
     <item
-        android:id="@+id/pingFragment"
+        android:id="@+id/pingFragment2"
         android:icon="@drawable/ic_settings_ethernet_black_24dp"
-        android:title="Ping" />
+        android:title="@string/nav_ping" />
+
 </menu>

@@ -17,12 +17,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:background="#78BEFB"
         android:fontFamily="@font/raleway_medium"
-        android:minWidth="200sp"
+        android:minWidth="350sp"
         android:textAlignment="center"
         android:textColor="@android:color/primary_text_dark"
-        android:textSize="64sp"
+        android:textSize="56sp"
         tools:text="134.228.0.185" />
 
     <LinearLayout
@@ -59,10 +58,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:textAlignment="textStart"
+                    android:gravity="center_vertical|start"
                     android:textColor="@android:color/primary_text_dark"
-                    android:textSize="28sp"
+                    android:textSize="24sp"
                     android:theme="@style/ThemeOverlay.AppCompat.Dark"
                     android:visibility="visible"
                     tools:text="Larock32" />
@@ -71,10 +69,10 @@
                     android:id="@+id/localIpView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal|center_vertical"
+                    android:gravity="center_vertical|start"
                     android:textAlignment="textStart"
                     android:textColor="@android:color/primary_text_dark"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     tools:text="10.0.0.1" />
             </LinearLayout>
 
@@ -88,7 +86,7 @@
                 android:drawableStart="@drawable/ic_import_export_black_24dp"
                 android:gravity="center_vertical"
                 android:textColor="@android:color/primary_text_dark"
-                android:textSize="20sp"
+                android:textSize="22sp"
                 tools:text="28Mbps" />
 
         </LinearLayout>
@@ -120,10 +118,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway_medium"
-                    android:gravity="center_vertical"
+                    android:gravity="center_vertical|start"
                     android:textAlignment="textStart"
                     android:textColor="@android:color/primary_text_dark"
-                    android:textSize="28sp"
+                    android:textSize="24sp"
                     android:theme="@style/ThemeOverlay.AppCompat.Dark"
                     android:visibility="visible"
                     tools:text="Verizon" />
@@ -132,10 +130,10 @@
                     android:id="@+id/cellularIpView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal|center_vertical"
+                    android:gravity="center_vertical|start"
                     android:textAlignment="textStart"
                     android:textColor="@android:color/primary_text_dark"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     tools:text="254.254.254.1" />
             </LinearLayout>
 

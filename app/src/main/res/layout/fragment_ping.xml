@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -35,9 +34,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway"
-                android:hint="Count"
+                android:hint="@string/ping_count_label"
                 android:inputType="number"
-                android:text="5"
+                android:text="@string/ping_count_default"
                 android:textAlignment="center" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -55,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway"
-                android:hint="Hostname" />
+                android:hint="@string/hostname_hint" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10sp"
             android:layout_marginBottom="2sp"
-            android:text="PING"
+            android:text="@string/ping_button_text"
             android:textColor="#FFFFFFFF" />
 
     </LinearLayout>
@@ -89,37 +88,34 @@
         tools:layout_conversion_absoluteWidth="411dp">
 
         <TextView
-            android:id="@+id/headerNumber"
             android:layout_width="60sp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10sp"
             android:layout_weight="0"
             android:fontFamily="@font/raleway_medium"
-            android:text="#"
+            android:text="@string/number_sign"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/headerRTT"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/raleway_medium"
-            android:text="RTT"
+            android:text="@string/RTT_label"
             android:textAlignment="textStart"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/headerTTL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:fontFamily="@font/raleway_medium"
             android:paddingStart="10sp"
             android:paddingEnd="10sp"
-            android:text="TTL"
+            android:text="@string/TTL_label"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />

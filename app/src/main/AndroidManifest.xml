@@ -17,12 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/NetraceTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
         <activity
             android:name=".MainActivity"
             android:theme="@style/NoBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -30,14 +30,5 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
-<!--        <receiver-->
-<!--            android:name=".receivers.WifiInfoReceiver"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.NETWORK_STATE_CHANGED_ACTION" />-->
-<!--            </intent-filter>-->
-<!--        </receiver>-->
     </application>
-
 </manifest>
